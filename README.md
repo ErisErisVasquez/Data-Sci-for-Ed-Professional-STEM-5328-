@@ -1,92 +1,176 @@
+# 📊 EPISD STAAR Performance & Student Population Analysis
 
-EPISD TAPR: AI-Assisted Data Exploration
-This repository contains the reproducible analysis for a graduate-level data science assignment examining STAAR End-of-Course (EOC) performance and student-group context in El Paso Independent School District (EPISD) during 2023–2024 and 2024–2025.
+### AI-Assisted Data Exploration | STEM 5328
 
-Research question
-How does STAAR EOC performance differ among students in El Paso Independent School District based on English Learner and At-Risk classification compared with overall district and state performance?
+This project examines STAAR End-of-Course (EOC) performance in the **El Paso Independent School District (EPISD)** during the **2023–2024 and 2024–2025 school years**. Using Texas Academic Performance Report (TAPR) data, the analysis explores student performance alongside the demographic context of English Bilingual/Emergent Bilingual/English Learner (EB/EL), At-Risk, and Economically Disadvantaged student populations.
 
-The final analysis focuses most directly on students reported by TAPR as EB/EL (Current & Monitored). At-Risk and Economically Disadvantaged data are used as district-level context, not as proof that those classifications caused the observed test outcomes.
+---
 
-Data sources
-Texas Education Agency, 2023–24 TAPR Reports
+## 🎯 Research Question
 
-Texas Education Agency, 2024–25 TAPR Reports
+**How does STAAR EOC performance differ among students in El Paso Independent School District based on English Language Learner and At-Risk classification compared with overall district and state performance?**
 
-EPISD district number: 071902
+The final analysis focuses most directly on students reported by TAPR as **EB/EL (Current & Monitored)**. At-Risk and Economically Disadvantaged data provide additional district-level context for understanding the population EPISD serves.
 
-District TAPR and Texas State TAPR files for both school years
+> **Important:** These comparisons show patterns and possible relationships in the data. They do not establish that any student classification causes differences in STAAR performance.
 
-The project stores only the manually transcribed values needed for the four selected charts. This makes the analysis auditable without redistributing the full TAPR PDFs.
+---
 
-Method
-For EOC performance, the TAPR tables report Approaches Grade Level or Above. The complementary rate was calculated as:
+# 🔎 Key Findings
 
-Did Not Meet Grade Level (%) = 100 - Approaches Grade Level or Above (%)
-This is not the complement of Meets Grade Level or Above. TAPR percentages are displayed as whole numbers, so derived values retain that rounding.
+The data reveal an important pattern: **EPISD serves substantially larger proportions of EB/EL, At-Risk, and Economically Disadvantaged students than Texas overall.**
 
-Population charts compare the percentage of total student membership classified as:
+At the same time, STAAR EOC results for EPISD EB/EL students vary considerably by subject. English I presents the largest challenge, while Algebra I and U.S. History show stronger outcomes.
 
-EB Students/EL
+Taken together, these findings suggest that STAAR performance should be interpreted alongside the demographic and educational context of the district rather than viewed as an isolated measure of student achievement.
 
-At-Risk
+---
 
-Economically Disadvantaged
+# 📈 Data Visualizations
 
-Because EPISD and Texas have very different total enrollments, percentages—not raw counts—are the primary comparison.
+## 1. EB/EL Students Not Meeting Grade Level
 
-Main findings
-EPISD EB/EL students had the highest Did Not Meet rate in English I: 48% in 2023–24 and 47% in 2024–25.
-
-Algebra I increased from 23% to 26% Did Not Meet, while U.S. History decreased from 11% to 10%.
-
-EPISD's EB/EL membership share exceeded Texas by 13.5 percentage points in 2023–24 and 11.8 points in 2024–25.
-
-EPISD's At-Risk share exceeded Texas by 8.1 points in 2023–24 and 7.2 points in 2024–25.
-
-EPISD's Economically Disadvantaged share exceeded Texas by 12.9 points in 2023–24 and 10.8 points in 2024–25.
-
-What this analysis cannot establish
-The aggregate TAPR tables do not identify how many students belong simultaneously to the EB/EL, At-Risk, and Economically Disadvantaged groups.
-
-The At-Risk totals do not separate students by the specific criterion that qualified them, such as attendance-related criteria.
-
-Two annual district-level observations are not enough to estimate a meaningful correlation between population composition and test performance.
-
-These comparisons are descriptive and observational. They do not show that EB/EL status, poverty, attendance, or any other classification caused a difference in STAAR performance.
-
-The selected Never EB/EL – All Grades table was not used because its broad subject aggregates are not directly comparable with the specific English I, Algebra I, and U.S. History EOC assessments.
-
-Repository structure
-data/
-  eoc_eb_el_performance.csv
-  student_membership.csv
-src/
-  analyze_tapr.py
-figures/
-  generated PNG charts
-outputs/
-  generated summary tables
-requirements.txt
-Run the analysis
-python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-python src/analyze_tapr.py
-The script validates the input percentages, calculates the derived rates and percentage-point gaps, writes summary CSV files, and regenerates all four charts.
-
-Responsible use of AI
-AI assistance was used to help locate relevant TAPR fields, structure the extracted values, generate and check Python code, and improve chart presentation. The source values, formulas, terminology, and limitations should be verified against the original TAPR reports before submission or reuse.
-
-## Data Visualizations
-
-### EB/EL Students Not Meeting Grade Level
 ![EPISD EB/EL EOC Performance](figures/01_episd_eb_el_did_not_meet.png)
 
-### EB/EL Student Membership: EPISD vs. Texas
+### What does this show?
+
+English I stands out as the greatest area of concern for EPISD EB/EL students. Approximately **48% did not meet grade level in 2023–2024 and 47% in 2024–2025**.
+
+Algebra I moved in the opposite direction, with the percentage not meeting grade level increasing from approximately **23% to 26%**. U.S. History showed the strongest performance, with approximately **11% and 10%** not meeting grade level across the two years.
+
+The differences among subjects suggest that EB/EL classification alone does not explain STAAR performance. The particularly large gap in English I may indicate that language-intensive assessments create additional challenges for students who are simultaneously developing academic English proficiency.
+
+---
+
+## 2. EB/EL Student Population: EPISD vs. Texas
+
 ![EB/EL Membership EPISD vs Texas](figures/02_eb_el_membership_episd_vs_texas.png)
 
-### At-Risk Student Membership: EPISD vs. Texas
+### What does this show?
+
+EPISD serves a **considerably larger share of EB/EL students than the Texas statewide population** in both years examined.
+
+This difference is important when interpreting district STAAR results. EPISD is operating within a substantially different linguistic context than the state as a whole.
+
+The comparison does **not** demonstrate that a larger EB/EL population causes lower STAAR performance. Instead, it identifies an important contextual factor that should be considered when comparing EPISD outcomes with statewide averages.
+
+---
+
+## 3. At-Risk Student Population: EPISD vs. Texas
+
 ![At-Risk Membership EPISD vs Texas](figures/03_at_risk_membership_episd_vs_texas.png)
 
-### Economically Disadvantaged Students: EPISD vs. Texas
+### What does this show?
+
+EPISD also reports a substantially larger percentage of students classified as **At-Risk** than Texas overall.
+
+Because the At-Risk designation can reflect multiple academic and socioeconomic circumstances, this comparison provides another layer of context for understanding district performance.
+
+The data suggest that EPISD serves a student population with a greater concentration of identified educational risk factors than the statewide population.
+
+---
+
+## 4. Economically Disadvantaged Students: EPISD vs. Texas
+
 ![Economically Disadvantaged EPISD vs Texas](figures/04_economically_disadvantaged_episd_vs_texas.png)
+
+### What does this show?
+
+The Economically Disadvantaged comparison reveals another substantial difference between EPISD and Texas overall.
+
+Across both school years, **EPISD has a considerably larger proportion of students classified as Economically Disadvantaged** than the statewide population.
+
+This does not establish a causal relationship between economic disadvantage and STAAR outcomes. However, when considered alongside the EB/EL and At-Risk data, it demonstrates that EPISD's student population differs meaningfully from the statewide population used for comparison.
+
+---
+
+# 🧩 Overall Interpretation
+
+When the four visualizations are considered together, a broader picture emerges.
+
+EPISD serves higher concentrations of **EB/EL, At-Risk, and Economically Disadvantaged students** than Texas overall. At the same time, EB/EL STAAR performance is not equally low across all tested subjects. U.S. History outcomes are comparatively strong, Algebra I falls in the middle, and English I represents the clearest area of concern.
+
+This pattern is particularly noteworthy because English I requires students to demonstrate reading comprehension, written expression, vocabulary knowledge, and interpretation of complex texts in English. For EB/EL students, the assessment may therefore measure academic content knowledge while simultaneously placing substantial demands on English-language proficiency.
+
+The analysis supports a **relationship between student-population context and academic performance that deserves further investigation**, but it does not support a claim that EB/EL, At-Risk, or Economically Disadvantaged status causes lower STAAR scores.
+
+A more complete future analysis could compare these groups directly with students who are not classified as EB/EL, At-Risk, or Economically Disadvantaged and examine campus-level patterns to determine whether similar relationships appear throughout EPISD.
+
+---
+
+# 🗂️ Data Sources
+
+**Texas Education Agency (TEA), Texas Academic Performance Reports (TAPR)**
+
+- 2023–2024 TAPR
+- 2024–2025 TAPR
+- El Paso Independent School District
+- Texas statewide comparison data
+
+**EPISD District Number:** 071902
+
+---
+
+# 🤖 AI-Assisted Data Exploration
+
+AI-assisted tools were used to support the data exploration process, including:
+
+- identifying variables relevant to the research question;
+- organizing and comparing TAPR data;
+- checking values and calculations;
+- generating Python code for reproducible analysis;
+- creating data visualizations; and
+- supporting interpretation of patterns across the selected student populations.
+
+AI assistance was used as an analytical support tool rather than as a substitute for interpretation. Results were reviewed in relation to the original TAPR data, and conclusions were limited to relationships supported by the selected data.
+
+---
+
+# 💻 Reproducibility
+
+The repository includes the materials necessary to reproduce the analysis.
+
+### Repository Structure
+
+    data/
+        student performance and membership data
+
+    src/
+        analyze_tapr.py
+
+    figures/
+        four data visualizations
+
+    outputs/
+        generated summary tables
+
+    requirements.txt
+
+### Run the Analysis
+
+Create a virtual environment and install the required packages:
+
+    python -m venv .venv
+    pip install -r requirements.txt
+
+Run:
+
+    python src/analyze_tapr.py
+
+The script validates input percentages, calculates derived rates and percentage-point differences, and generates the summary outputs used in the analysis.
+
+---
+
+## ⚠️ Limitations
+
+This analysis is descriptive and exploratory.
+
+The visualizations identify patterns and differences among student populations, but **correlation should not be interpreted as causation**. Student performance can be influenced by numerous overlapping factors that are not represented in this dataset.
+
+Additional years of data, student-group comparisons, campus-level information, and statistical testing would be needed to evaluate these relationships more fully.
+
+---
+
+### 📚 Project Purpose
+
+This repository was created as part of a graduate-level data science assignment examining how educational data and AI-assisted analytical methods can be used to explore meaningful questions in education.
