@@ -76,3 +76,17 @@ The script validates the input percentages, calculates the derived rates and per
 
 Responsible use of AI
 AI assistance was used to help locate relevant TAPR fields, structure the extracted values, generate and check Python code, and improve chart presentation. The source values, formulas, terminology, and limitations should be verified against the original TAPR reports before submission or reuse.
+
+## Data Visualizations
+
+### EB/EL Students Not Meeting Grade Level
+![EPISD EB/EL EOC Performance](figures/01_episd_eb_el_did_not_meet.png)
+
+### EB/EL Student Membership: EPISD vs. Texas
+![EB/EL Membership EPISD vs Texas](figures/02_eb_el_membership_episd_vs_texas.png)
+
+### At-Risk Student Membership: EPISD vs. Texas
+![At-Risk Membership EPISD vs Texas](figures/03_at_risk_membership_episd_vs_texas.png)
+
+### Economically Disadvantaged Students: EPISD vs. Texas
+![Economically Disadvantaged EPISD vs Texas](figures/04_economically_disadvantaged_episd_vs_texas.png)
